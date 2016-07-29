@@ -1,94 +1,42 @@
 package org.leanpoker.player;
 
+import java.util.List;
+
 public class Players
 {
+    private String name;
+    private int stack;
+    private String status;
+    private int bet;
+    private List<HoleCards> hole_cards;
+    private String version;
     private String id;
 
-    private String status;
-
-    private String bet;
-
-    private String name;
-
-    private String stack;
-
-    private String version;
-
-    private String[] hole_cards;
-
-    public String getId ()
-    {
-        return id;
-    }
-
-    public void setId (String id)
-    {
-        this.id = id;
-    }
-
-    public String getStatus ()
-    {
-        return status;
-    }
-
-    public void setStatus (String status)
-    {
-        this.status = status;
-    }
-
-    public String getBet ()
-    {
-        return bet;
-    }
-
-    public void setBet (String bet)
-    {
-        this.bet = bet;
-    }
-
-    public String getName ()
-    {
+    public String getName() {
         return name;
     }
 
-    public void setName (String name)
-    {
-        this.name = name;
-    }
-
-    public String getStack ()
-    {
+    public int getStack() {
         return stack;
     }
 
-    public void setStack (String stack)
-    {
-        this.stack = stack;
+    public String getStatus() {
+        return status;
     }
 
-    public String getVersion ()
-    {
-        return version;
+    public int getBet() {
+        return bet;
     }
 
-    public void setVersion (String version)
-    {
-        this.version = version;
-    }
-
-    public String[] getHole_cards ()
-    {
+    public List<HoleCards> getHole_cards() {
         return hole_cards;
     }
 
-    public void setHole_cards (String[] hole_cards)
-    {
-        this.hole_cards = hole_cards;
+    public String getVersion() {
+        return version;
     }
 
-    @Override
-    public String toString()
-    {
-        return "ClassPojo [id = "+id+", status = "+status+", bet = "+bet+", name = "+name+", stack = "+stack+", version = "+version+", hole_cards = "+hole_cards+"]";
+    public String getId() {
+        return id;
     }
 }
