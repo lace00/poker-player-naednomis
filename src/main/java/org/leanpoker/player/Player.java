@@ -19,10 +19,10 @@ public class Player {
         List<Card> myHand = getHand(hole_cards);
 
         if (isPair(myHand)) {
-            if (myHand.get(0).ordinal() > Card.EIGHT.ordinal()) {
+            if (myHand.get(0).ordinal() >= Card.TEN.ordinal()) {
                 return Integer.MAX_VALUE;
-            } else {
-                return 500;
+//            } else {
+//                return 500;
             }
         }
 
@@ -30,7 +30,7 @@ public class Player {
             return 0;
         }
 
-        return Integer.MAX_VALUE;
+        return 0;
     }
 
     private static boolean isPair(List<Card> myHand) {
