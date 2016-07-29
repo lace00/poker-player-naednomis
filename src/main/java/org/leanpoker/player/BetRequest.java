@@ -137,6 +137,6 @@ public class BetRequest
     @Override
     public String toString()
     {
-        return "ClassPojo [community_cards = "+community_cards+", dealer = "+dealer+", tournament_id = "+tournament_id+", orbits = "+orbits+", bet_index = "+bet_index+", game_id = "+game_id+", players = "+players+", current_buy_in = "+current_buy_in+", round = "+round+", small_blind = "+small_blind+", pot = "+pot+"]";
+        return "BetRequest [community_cards = "+community_cards+", dealer = "+dealer+", tournament_id = "+tournament_id+", orbits = "+orbits+", bet_index = "+bet_index+", game_id = "+game_id+", players = "+players+", current_buy_in = "+current_buy_in+", round = "+round+", small_blind = "+small_blind+", pot = "+pot+"]";
     }
 }
