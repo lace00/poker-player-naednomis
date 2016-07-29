@@ -22,6 +22,8 @@ public class Player {
             return 0;
         }
 
+        System.out.println(betRequest);
+
         return Integer.MAX_VALUE;
     }
 

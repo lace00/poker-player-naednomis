@@ -10,7 +10,7 @@ public class BetRequest
     private int big_blind;
     private String orbits;
     private int dealer;
-//    private String[] community_cards;
+    private Object community_cards;
     private int current_buy_in;
     private int pot;
     private int in_action;
