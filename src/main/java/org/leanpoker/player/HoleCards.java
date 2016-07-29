@@ -11,4 +11,12 @@ public class HoleCards {
     public String getSuit() {
         return suit;
     }
+
+    public void setRank(String rank) {
+        this.rank = rank;
+    }
+
+    public void setSuit(String suit) {
+        this.suit = suit;
+    }
 }
