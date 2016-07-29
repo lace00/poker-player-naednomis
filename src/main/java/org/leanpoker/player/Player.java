@@ -1,5 +1,6 @@
 package org.leanpoker.player;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 
 
@@ -8,11 +9,8 @@ public class Player {
     static final String VERSION = "naeDnomiS";
 
     public static int betRequest(JsonElement request) {
-//        Gson gson = new Gson();
-//        BetRequest betRequest = gson.fromJson(request.getAsJsonObject(), BetRequest.class);
-//
-//        System.out.println("BetRequest: " + betRequest);
-        System.err.println(request);
+        Gson gson = new Gson();
+        Wrapper betRequest = gson.fromJson(request.getAsJsonObject(), Wrapper.class);
 
         return Integer.MAX_VALUE;
     }
