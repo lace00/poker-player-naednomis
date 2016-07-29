@@ -3,6 +3,8 @@ package org.leanpoker.player;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.leanpoker.player.httpService.Color;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 
@@ -21,16 +23,26 @@ public class Player {
         if (isPair(myHand)) {
             if (myHand.get(0).ordinal() >= Card.TEN.ordinal()) {
                 return Integer.MAX_VALUE;
-//            } else {
-//                return 500;
             }
         }
 
-        if (isFold(myHand)) {
-            return 0;
+        if (isSameColor(hole_cards) && isBig(myHand)) {
+            return Integer.MAX_VALUE;
         }
 
+//        if (isFold(myHand)) {
+//            return 0;
+//        }
+
         return 0;
+    }
+
+    private static boolean isBig(List<Card> hand) {
+        return isBigCard(hand, 0) && isBigCard(hand, 1);
+    }
+
+    private static boolean isSameColor(List<HoleCards> myHand) {
+        return Color.from(myHand.get(0).getSuit()) == Color.from(myHand.get(1).getSuit());
     }
 
     private static boolean isPair(List<Card> myHand) {
@@ -46,6 +58,10 @@ public class Player {
 
     private static boolean isSmallCard(List<Card> myHand, int index) {
         return myHand.get(index).ordinal() < 9;
+    }
+
+    private static boolean isBigCard(List<Card> myHand, int index) {
+        return myHand.get(index).ordinal() >= 9;
     }
 
     private static List<Card> getHand(List<HoleCards> hole_cards) {
