@@ -30,6 +30,12 @@ public class Player {
             return Integer.MAX_VALUE;
         }
 
+        int small_blind = betRequest.getSmall_blind();
+        if (isBig(myHand) && small_blind >= 50) {
+            return Integer.MAX_VALUE;
+        }
+
+
 //        if (isFold(myHand)) {
 //            return 0;
 //        }
