@@ -21,7 +21,7 @@ public class Player {
         List<Card> myHand = getHand(hole_cards);
 
         if (isPair(myHand)) {
-            if (myHand.get(0).ordinal() >= Card.TEN.ordinal()) {
+            if (myHand.get(0).ordinal() >= Card.NINE.ordinal()) {
                 return Integer.MAX_VALUE;
             }
         }
@@ -37,8 +37,15 @@ public class Player {
         return 0;
     }
 
+    private static boolean isAK(Card card) {
+        return card == Card.A || card == Card.K;
+    }
+
     private static boolean isBig(List<Card> hand) {
-        return isBigCard(hand, 0) && isBigCard(hand, 1);
+        boolean hasAK = isAK(hand.get(0)) || isAK(hand.get(1));
+        boolean bothBig = isBigCard(hand, 0) && isBigCard(hand, 1);
+
+        return hasAK && bothBig;
     }
 
     private static boolean isSameColor(List<HoleCards> myHand) {
