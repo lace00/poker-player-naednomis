@@ -19,7 +19,11 @@ public class Player {
         List<Card> myHand = getHand(hole_cards);
 
         if (isPair(myHand)) {
-            return Integer.MAX_VALUE;
+            if (myHand.get(0).ordinal() > Card.EIGHT.ordinal()) {
+                return Integer.MAX_VALUE;
+            } else {
+                return 500;
+            }
         }
 
         if (isFold(myHand)) {
@@ -37,7 +41,7 @@ public class Player {
 
     private static boolean isFold(List<Card> myHand) {
         boolean far = Math.abs(myHand.get(0).ordinal() - myHand.get(1).ordinal()) >= 5;
-        boolean small = isSmallCard(myHand, 0) && isSmallCard(myHand, 1);
+        boolean small = isSmallCard(myHand, 0) || isSmallCard(myHand, 1);
 
         return far && small;
     }
