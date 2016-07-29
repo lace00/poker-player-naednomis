@@ -18,11 +18,21 @@ public class Player {
         List<HoleCards> hole_cards = me.getHole_cards();
         List<Card> myHand = getHand(hole_cards);
 
-        if (Math.abs(myHand.get(0).ordinal()-myHand.get(1).ordinal()) >= 5) {
+        if (isFold(myHand)) {
             return 0;
         }
 
         return Integer.MAX_VALUE;
+    }
+
+    private static boolean isFold(List<Card> myHand) {
+        boolean far = Math.abs(myHand.get(0).ordinal() - myHand.get(1).ordinal()) >= 5;
+        boolean small = isSmallCard(myHand, 0) && isSmallCard(myHand, 1);
+        return far && small;
+    }
+
+    private static boolean isSmallCard(List<Card> myHand, int index) {
+        return myHand.get(index).ordinal() < 9;
     }
 
     private static List<Card> getHand(List<HoleCards> hole_cards) {
