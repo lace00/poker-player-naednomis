@@ -30,8 +30,6 @@ public class Player {
             return 0;
         }
 
-        System.out.println(betRequest);
-
         return Integer.MAX_VALUE;
     }
 
@@ -43,7 +41,7 @@ public class Player {
         boolean far = Math.abs(myHand.get(0).ordinal() - myHand.get(1).ordinal()) >= 5;
         boolean small = isSmallCard(myHand, 0) || isSmallCard(myHand, 1);
 
-        return far && small;
+        return far || small;
     }
 
     private static boolean isSmallCard(List<Card> myHand, int index) {
